@@ -63,8 +63,10 @@ def invert_and_reverse_words(words,
     inverted_words = []
     for word in words:
         inverted_word = invert_and_reverse_word(word, alphabet, transform_dict)
-        if not only_equals or word == inverted_word:
+        if not only_equals:
             inverted_words.append((word, inverted_word))
+        elif only_equals and word == inverted_word:
+            inverted_words.append(word)
         
     return inverted_words
 
@@ -103,10 +105,4 @@ def invert_and_reverse_words(words,
 #  
 #words = get_words_from_file("ss100.txt")
 #print(invert_and_reverse_words(words, alphabet, transform_dict, True))
-
-
-
-
-
-
     
