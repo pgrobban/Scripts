@@ -1,5 +1,7 @@
 # goal: invert letters a->z b->y etc. "wizard" spells "draziw", wizard backwards
 # how many words are like this in the any language?
+#
+# author: Robert Sebescen (pgrobban at gmail dot com)
 
 
 def get_words_from_file(file):
