@@ -29,5 +29,5 @@ for day in data["dagar"]:
 		print(s.strftime("%A %d %B"))
 		count += 1
 
-print("\n= Totalt {0} dagar\n".format(count))
+print("\n= Totalt {0} {1}\n".format(count, "dag" if count == 1 else "dagar"))
 
