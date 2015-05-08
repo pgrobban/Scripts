@@ -1,6 +1,8 @@
-# printa alla klämdagar i ett år givet av kommandoraden
-# todo: skicka mail som ansöker om ledighet
-
+# printa alla klämdagar i ett år givet av kommandoraden. 
+# Om inget år är givet, använd det aktuella året.
+# 
+# TODO: skicka mail som ansöker om ledighet :)
+#
 # author: Robert Sebescen (pgrobban at gmail dot com)
 
 import sys
