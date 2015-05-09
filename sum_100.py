@@ -7,8 +7,12 @@ import itertools
 
 all_combinations = []
 for number in "123456789":
+	if number != "9":
+		signs = ["", "+", "-"]
+	else:
+		signs = [""]
 	sub_combinations = []
-	for sign in ["", "+", "-"]:
+	for sign in signs:
 		s = "{0}{1}".format(number, sign)
 		sub_combinations.append(s)
 	all_combinations.append(sub_combinations)
@@ -21,18 +25,9 @@ cross_product_strings = []
 
 for i in cross_product:
 	string_to_calculate = "".join(i)
-	if string_to_calculate.endswith("+") or string_to_calculate.endswith("-"):
-		string_to_calculate = string_to_calculate[0:-1]
-		cross_product_strings.append(string_to_calculate)
-		# print(string_to_calculate)
+	cross_product_strings.append(string_to_calculate)
 
-# print("\n"*3)
+result = [i for i in cross_product_strings if eval(i) == 100]
+for i in result:
+	print(i)
 
-# for i in cross_product:
-# 	result = eval(i)
-# 	if result == 100:
-# 		print(i, "=", result)
-
-print([i for i in cross_product_strings if eval(i) == 100])
-
-#print(cross_product_strings)
