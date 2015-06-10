@@ -1,12 +1,13 @@
 <?php
 // vad blir det för mat på Strike?
+// @author: Robert Sebescen
 
 libxml_use_internal_errors(true);
 date_default_timezone_set("Europe/Stockholm");
 
 $swedish_day_names = array("Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag");
 $swedish_day_today = $swedish_day_names[date('N')-1]; // start array at 0
-echo "** Idag är det ".$swedish_day_today." ** \n";
+echo "** Idag är det ".mb_strtolower($swedish_day_today)." ** \n";
 echo "Laddar meny...\n\n";
 
 $doc = new DOMDocument(); 
