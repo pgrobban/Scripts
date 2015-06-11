@@ -1,6 +1,6 @@
 <?php
 // vad blir det för mat på Strike?
-// @author: Robert Sebescen
+// @author Robert Sebescen
 
 libxml_use_internal_errors(true);
 date_default_timezone_set("Europe/Stockholm");
