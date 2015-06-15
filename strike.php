@@ -6,9 +6,11 @@ libxml_use_internal_errors(true);
 date_default_timezone_set("Europe/Stockholm");
 
 $swedish_day_names = array("Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag");
-$swedish_day_today = $swedish_day_names[date('N')-1]; // start array at 0
-echo "** Idag är det ".mb_strtolower($swedish_day_today)." ** \n";
-echo "Laddar meny...\n\n";
+if (count($argv) === 1) // no extra arg given
+	$swedish_day_to_look = $swedish_day_names[date('N')-1]; // look up today. start array at 0
+else
+	$swedish_day_to_look = ucwords($argv[1]);
+echo "** Hämtar mat för ".mb_strtolower($swedish_day_to_look, "utf-8")." ** \n\n";
 
 $doc = new DOMDocument(); 
 //$doc->loadHTML(file_get_contents('lunchmeny.html')); // debug
@@ -24,7 +26,7 @@ $xpath = new DOMXpath($doc);
 <li>Pasta: Havets frukter i en vitlöksdoftande tomatsås.</li>
 </ul>
 */
-$elements = $xpath->query("//ul[preceding::p[1]/span[.='".$swedish_day_today."']]");
+$elements = $xpath->query("//ul[preceding::p[1]/span[.='".$swedish_day_to_look."']]");
 if ($elements->length === 0)
 {
 	echo "Ingen mat idag :(\n";
